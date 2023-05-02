@@ -1,0 +1,403 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={STA365\_homework2\_code},
+  pdfauthor={Ruike Xu},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{STA365\_homework2\_code}
+\author{Ruike Xu}
+\date{3/29/2022}
+
+\begin{document}
+\maketitle
+
+\hypertarget{question-2}{%
+\subsection{Question 2}\label{question-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("rjags")}
+
+\FunctionTok{library}\NormalTok{(R2jags)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'R2jags' was built under R version 4.1.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: rjags
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'rjags' was built under R version 4.1.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: coda
+\end{verbatim}
+
+\begin{verbatim}
+## Linked to JAGS 4.3.0
+\end{verbatim}
+
+\begin{verbatim}
+## Loaded modules: basemod,bugs
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'R2jags'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:coda':
+## 
+##     traceplot
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(lattice)}
+\end{Highlighting}
+\end{Shaded}
+
+\[ Liberal:\ \ \tau(1-\theta)+\theta(1-\lambda) \]
+\[ Republician(\psi):\ \ \lambda\theta + (1-\tau)(1-\theta) \]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Model construction with likelihood function and prior}
+\NormalTok{model.JAGS }\OtherTok{=} \ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{    y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{dbinom}\NormalTok{(psi, n)}
+\NormalTok{    theta }\SpecialCharTok{\textasciitilde{}} \FunctionTok{dbeta}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\NormalTok{    tau }\SpecialCharTok{\textasciitilde{}} \FunctionTok{dbeta}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\NormalTok{    lambda }\SpecialCharTok{\textasciitilde{}} \FunctionTok{dbeta}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{    psi }\OtherTok{\textless{}{-}}\NormalTok{ theta }\SpecialCharTok{*}\NormalTok{ lambda }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ theta) }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ tau)}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+The model we are constructing is intended to predict which candidate is
+likely to win the 2024 US presidential election (Donald Trump or
+Elizabeth Warren), which is based on binomial likelihood and beta prior.
+\(\theta\) is the probability that the voter claims to vote for trump
+(might lying), thus, \(1 - \theta\) is the probability that the person
+claims to vote for Warren. \(\lambda\) is the percentage of the
+population that is actually willing to vote for trump while \(\tau\) is
+the percentage of population that is actually willing to vote for
+Warren. We can detect the `Quasi Liberal' and `Quasi Republican' as
+\(1-\lambda\) and \(1-\tau\). To be more specific, percentage of
+population that claimed they would vote for Trump/Warren but ended
+voting the opposite.
+
+Therefore, we can derive that the actual probability of a person voting
+for Trump as \(\psi:\lambda\theta + (1-\tau)(1-\theta)\) and the actual
+probability of a person voting for Warren as
+\(\tau(1-\theta)+\theta(1-\lambda)\)
+
+To define \(\tau\) and \(\lambda\), we would assume more Republican
+people are less willing to claim their feelings in Liberal states, so
+\(\tau\) \textasciitilde{} Beta(6, 4) and \(\lambda\) \textasciitilde{}
+Beta(7,3)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Simulating data}
+\NormalTok{n }\OtherTok{=} \DecValTok{100000}
+\NormalTok{y }\OtherTok{=} \DecValTok{30000}
+\NormalTok{data.JAGS }\OtherTok{=} \FunctionTok{list}\NormalTok{(}\AttributeTok{y =}\NormalTok{ y, }\AttributeTok{n =}\NormalTok{ n)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Randomly select the initial values}
+\NormalTok{inits.JAGS }\OtherTok{=} \ControlFlowTok{function}\NormalTok{()\{}
+  \FunctionTok{return}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{theta=}\FunctionTok{rbeta}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{),}\AttributeTok{tau=}\FunctionTok{rbeta}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{),}\AttributeTok{lambda=}\FunctionTok{rbeta}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{3}\NormalTok{)))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Select parameters that will be simulated with MCMC model}
+\NormalTok{para.JAGS }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"theta"}\NormalTok{, }\StringTok{"tau"}\NormalTok{, }\StringTok{"lambda"}\NormalTok{, }\StringTok{"psi"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Fit the MCMC model, number of iterations = 90000, burn in = 10000}
+\NormalTok{fit.JAGS }\OtherTok{=} \FunctionTok{jags}\NormalTok{(}\AttributeTok{data=}\NormalTok{data.JAGS,}\AttributeTok{inits=}\NormalTok{inits.JAGS,}
+                \AttributeTok{parameters.to.save =}\NormalTok{ para.JAGS,}
+                \AttributeTok{n.chains=}\DecValTok{1}\NormalTok{,}
+                \AttributeTok{n.iter=}\DecValTok{90000}\NormalTok{,}
+                \AttributeTok{n.burnin=}\DecValTok{10000}\NormalTok{,}
+                \AttributeTok{model.file=}\NormalTok{model.JAGS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## module glm loaded
+\end{verbatim}
+
+\begin{verbatim}
+## Compiling model graph
+##    Resolving undeclared variables
+##    Allocating nodes
+## Graph information:
+##    Observed stochastic nodes: 1
+##    Unobserved stochastic nodes: 3
+##    Total graph size: 15
+## 
+## Initializing model
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Print model fit summary}
+\FunctionTok{print}\NormalTok{(fit.JAGS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Inference for Bugs model at "C:/Users/Ruike Xu/AppData/Local/Temp/RtmpGGHdzu/model669c5d5653cb.txt", fit using jags,
+##  1 chains, each with 90000 iterations (first 10000 discarded), n.thin = 80
+##  n.sims = 1000 iterations saved
+##          mu.vect sd.vect   2.5%    25%    50%    75%  97.5%
+## lambda     0.632   0.156  0.333  0.518  0.646  0.752  0.902
+## psi        0.300   0.001  0.297  0.299  0.300  0.301  0.303
+## tau        0.794   0.057  0.711  0.749  0.788  0.834  0.912
+## theta      0.232   0.112  0.055  0.151  0.218  0.296  0.507
+## deviance  12.718   1.370 11.791 11.878 12.163 12.926 16.780
+## 
+## DIC info (using the rule, pD = var(deviance)/2)
+## pD = 0.9 and DIC = 13.7
+## DIC is an estimate of expected predictive error (lower deviance is better).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Generate traceplots}
+\FunctionTok{traceplot}\NormalTok{(fit.JAGS,}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{),}\AttributeTok{ask=}\ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{STA365_homework2_code_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot MCMC object to show all parameter densities along with traceplots}
+\NormalTok{fit.JAGS.mcmc }\OtherTok{=} \FunctionTok{as.mcmc}\NormalTok{(fit.JAGS)}
+\FunctionTok{plot}\NormalTok{(fit.JAGS.mcmc,}\AttributeTok{ask=}\ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{STA365_homework2_code_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{STA365_homework2_code_files/figure-latex/unnamed-chunk-9-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summary as a MCMC object }
+\FunctionTok{summary}\NormalTok{(fit.JAGS.mcmc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Iterations = 10001:89921
+## Thinning interval = 80 
+## Number of chains = 1 
+## Sample size per chain = 1000 
+## 
+## 1. Empirical mean and standard deviation for each variable,
+##    plus standard error of the mean:
+## 
+##             Mean       SD  Naive SE Time-series SE
+## deviance 12.7179 1.369895 4.332e-02      4.332e-02
+## lambda    0.6322 0.156189 4.939e-03      2.044e-02
+## psi       0.3000 0.001396 4.415e-05      4.415e-05
+## tau       0.7943 0.056560 1.789e-03      9.350e-03
+## theta     0.2316 0.112185 3.548e-03      1.370e-02
+## 
+## 2. Quantiles for each variable:
+## 
+##              2.5%     25%     50%     75%   97.5%
+## deviance 11.79112 11.8779 12.1634 12.9260 16.7797
+## lambda    0.33281  0.5179  0.6456  0.7519  0.9017
+## psi       0.29718  0.2991  0.3000  0.3009  0.3028
+## tau       0.71052  0.7494  0.7876  0.8338  0.9122
+## theta     0.05455  0.1512  0.2180  0.2958  0.5067
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Traceplots as a MCMC object}
+\FunctionTok{xyplot}\NormalTok{(fit.JAGS.mcmc,}\AttributeTok{layout=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{STA365_homework2_code_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Density plot as a MCMC object}
+\FunctionTok{densityplot}\NormalTok{(fit.JAGS.mcmc)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{STA365_homework2_code_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\hypertarget{question-3}{%
+\subsection{Question 3}\label{question-3}}
+
+\hypertarget{parta}{%
+\subsubsection{Part(a)}\label{parta}}
+
+\[\begin{aligned}
+       \theta_1 = 1 + 0.065X_1 
+          = 1 + 0.065 * 95 = 7.175 \\
+       H_1 \sim Poisson(7.175) \\
+\end{aligned}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Probability of Poisson distribution for at least 2 infections}
+\NormalTok{P\_atleast2 }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}} \FunctionTok{ppois}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{7.175}\NormalTok{)}
+\NormalTok{P\_atleast2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9937422
+\end{verbatim}
+
+Therefore, the probability that Indonesia observes at least 2 infections
+in the given time period is 0.994
+
+\hypertarget{partb}{%
+\subsubsection{Part(b)}\label{partb}}
+
+\[\begin{aligned}
+       \theta_2 = 1 + 0.065X_2 
+          = 1 + 0.065 * 150 = 10.75 \\
+       H_2 \sim Poisson(10.75) \\
+\end{aligned}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Probability of Poisson distribution for at least 28 infections}
+\NormalTok{P\_atleast28 }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}} \FunctionTok{ppois}\NormalTok{(}\DecValTok{27}\NormalTok{, }\FloatTok{10.75}\NormalTok{)}
+\NormalTok{P\_atleast28}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8.378949e-06
+\end{verbatim}
+
+Therefore, the probability that Singapore observes 28 or more infections
+in the given time period is approximately 0.
+
+\end{document}

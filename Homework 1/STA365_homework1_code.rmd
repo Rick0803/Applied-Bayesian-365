@@ -1,0 +1,100 @@
+---
+title: "STA365_homework1_code"
+author: "Ruike Xu"
+date: "03/02/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(tidyverse)
+```
+
+## Question 2
+### Part b
+```{r}
+# Assume that r = p
+p <- seq(0, 1, by=0.01)
+Ep_Sp <- -log2(p)*p - (1-p)*log2(1-p)
+plot(p, Ep_Sp,type="l", xlab="Values of p", ylab="Ep[s(p)]", main ="Shannon information entropy")
+```
+
+## Question 4
+### Part C
+```{r }
+theta <- seq(0, 1, by=0.1)
+prob_X <- dbinom(66, size = 100, prob = theta)
+prob_likelihood <- tibble(theta, prob_X)
+ggplot(prob_likelihood, aes(x=theta, y=prob_X)) + 
+  geom_point(size = 2) + labs(x="value of theta", 
+  y="Probabilities given theta", 
+  title="Probabilities against different theta values under binomial distribution")
+```
+
+## Question 5
+
+### Part C
+```{r}
+# 95% Credible interval for prior Beta(2,8)
+qbeta(c(0.025, 0.975), 17, 36)
+
+```
+
+### Part D
+```{r}
+# Plot prior, likelihood, and posterior functions for Beta(2,8) prior
+y = 15
+n = 43
+a_1 = 2
+b_1 = 8
+a_p1 = 17
+b_p1 = 36
+theta_1 <- seq(0, 1, 0.01)
+
+# Prior distribution p(theta)
+plot(theta_1, dbeta(theta_1, shape1 = a_1, shape2 = b_1), type = 'l', 
+     xlab="Values of theta", ylab="p(theta)", 
+     main ="Prior distribution p(theta) for Beta(2,8) prior")
+
+# Likelihood function P(y|theta)
+plot(theta_1, dbinom(15, size = 43, prob = theta_1), type = 'l', 
+     xlab="Values of theta", ylab="p(y|theta)", 
+     main ="Likelihood function p(y|theta)")
+
+# Posterior distribution p(theta|y)
+plot(theta_1, dbeta(theta_1, shape1 = a_p1, shape2 = b_p1), type = 'l', 
+     xlab="Values of theta", ylab="p(theta|y)", 
+     main ="Posterior distribution p(theta|y) for Beta(2,8) prior")
+```
+### Part E
+```{r}
+# 95% Credible interval for prior Beta(8,2)
+qbeta(c(0.025, 0.975), 23, 30)
+```
+```{r}
+# Plot prior, likelihood, and posterior functions for Beta(8,2) prior
+y = 15
+n = 43
+a_2 = 8
+b_2 = 2
+a_p2 = 23
+b_p2 = 30
+theta_1 <- seq(0, 1, 0.01)
+
+# Prior distribution p(theta)
+plot(theta_1, dbeta(theta_1, shape1 = a_2, shape2 = b_2), type = 'l', 
+     xlab="Values of theta", ylab="p(theta)", 
+     main ="Prior distribution p(theta) for Beta(8,2) prior")
+
+# Likelihood function P(y|theta)
+plot(theta_1, dbinom(15, size = 43, prob = theta_1), type = 'l', 
+     xlab="Values of theta", ylab="p(y|theta)", 
+     main ="Likelihood function p(y|theta)")
+
+# Posterior distribution p(theta|y)
+plot(theta_1, dbeta(theta_1, shape1 = a_p2, shape2 = b_p2), type = 'l', 
+     xlab="Values of theta", ylab="p(theta|y)", 
+     main ="Posterior distribution p(theta|y) for Beta(8,2) prior")
+```
+
